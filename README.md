@@ -26,6 +26,7 @@ I based and used some code from Lionh34rt's qb-fishing script. I was bored of th
 ['stripedbass'] 				 = {['name'] = 'stripedbass', 					['label'] = 'Striped Bass', 			['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'stripedbass.png', 			['unique'] = false, 	['useable'] = false, 	['shouldClose'] = false,	['combinable'] = nil,   ['description'] = 'A Fish'},
 ['whale'] 			 			 = {['name'] = 'whale', 						['label'] = 'Whale', 					['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'whale.png', 				['unique'] = false, 	['useable'] = false, 	['shouldClose'] = false,	['combinable'] = nil,   ['description'] = 'A Fish'},
 ['whale2'] 						 = {['name'] = 'whale2', 						['label'] = 'Whale', 					['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'whale2.png', 				['unique'] = false, 	['useable'] = false, 	['shouldClose'] = false,	['combinable'] = nil,   ['description'] = 'A Fish'},
+--Illegal Fishing Reward
 ['bands'] 				 	 	 = {['name'] = 'bands', 			  	  		['label'] = 'Band of Cash', 			['weight'] = 100, 		['type'] = 'item', 		['image'] = 'bands.png', 				['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Money?'},
 ```
 * Create a new shop in qb-shops with the snippet below (optional)
