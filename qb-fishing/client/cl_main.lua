@@ -143,35 +143,35 @@ CreateThread(function()
                 name = v.name,
                 minZ = v.minZ,
                 maxZ = v.maxZ,
-                debugGrid = true,
+                debugGrid = false,
             })
         elseif v.river then
             zones2[#zones2+1] = PolyZone:Create(v.points, {
                 name = v.name,
                 minZ = v.minZ,
                 maxZ = v.maxZ,
-                debugGrid = true,
+                debugGrid = false,
             })
         elseif v.dock then
             zones3[#zones3+1] = PolyZone:Create(v.points, {
                 name = v.name,
                 minZ = v.minZ,
                 maxZ = v.maxZ,
-                debugGrid = true,
+                debugGrid = false,
             })
         elseif v.ocean then
             zones4[#zones4+1] = PolyZone:Create(v.points, {
                 name = v.name,
                 minZ = v.minZ,
                 maxZ = v.maxZ,
-                debugGrid = true,
+                debugGrid = false,
             })
         elseif v.illegal then
             zones5[#zones5+1] = PolyZone:Create(v.points, {
                 name = v.name,
                 minZ = v.minZ,
                 maxZ = v.maxZ,
-                debugGrid = true,
+                debugGrid = false,
             })
         end
     end
