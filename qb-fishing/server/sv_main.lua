@@ -43,12 +43,15 @@ RegisterNetEvent('qb-fishing:server:ReceiveIllegalFish', function()
     local Player = QBCore.Functions.GetPlayer(src)
     local chance = math.random(1, 3)
     if not Player then return end
-    if chance == 1 then
+    local hasItem = QBCore.Functions.GetItemByName('smallchunks')
+    local hasItem2 = QBCore.Functions.GetItemByName('plankton')
+    local hasItem3 = QBCore.Functions.GetItemByName('sharkbait')
+    if hasItem then
         Player.Functions.AddItem('stingray', 1)
-    elseif chance == 2 then
+    elseif hasItem2 then
         Player.Functions.AddItem('whale', 1)
-    else
-        Player.Functions.AddItem('whale2', 1)
+    elseif hasItem3 then
+        Player.Functions.AddItem('shark', 1)
     end
 end)
 

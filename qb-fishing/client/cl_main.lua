@@ -41,7 +41,7 @@ local fishAnimation = function()
                 TriggerServerEvent('qb-fishing:server:ReceiveFish4')
             elseif canFish5 then
                 local chance = math.random(1, 100)
-                if chance >= 60 then
+                if chance >= 100 - Shared.Chance then
                     exports['ps-dispatch']:Poaching()
                 end
                 TriggerServerEvent('hud:server:RelieveStress', 2)
@@ -51,7 +51,7 @@ local fishAnimation = function()
                 TriggerServerEvent('hud:server:RelieveStress', 1)
             end
         end
-    end, 2, 20)
+    end, math.random(Shared.MinigameCirclesMin, Shared.MinigameCirclesMax), Shared.MinigameTime)
     -- Finishing up
     ClearPedTasks(ped)
     DeleteObject(fishingRod)
@@ -143,35 +143,35 @@ CreateThread(function()
                 name = v.name,
                 minZ = v.minZ,
                 maxZ = v.maxZ,
-                debugGrid = false,
+                debugGrid = true,
             })
         elseif v.river then
             zones2[#zones2+1] = PolyZone:Create(v.points, {
                 name = v.name,
                 minZ = v.minZ,
                 maxZ = v.maxZ,
-                debugGrid = false,
+                debugGrid = true,
             })
         elseif v.dock then
             zones3[#zones3+1] = PolyZone:Create(v.points, {
                 name = v.name,
                 minZ = v.minZ,
                 maxZ = v.maxZ,
-                debugGrid = false,
+                debugGrid = true,
             })
         elseif v.ocean then
             zones4[#zones4+1] = PolyZone:Create(v.points, {
                 name = v.name,
                 minZ = v.minZ,
                 maxZ = v.maxZ,
-                debugGrid = false,
+                debugGrid = true,
             })
         elseif v.illegal then
             zones5[#zones5+1] = PolyZone:Create(v.points, {
                 name = v.name,
                 minZ = v.minZ,
                 maxZ = v.maxZ,
-                debugGrid = false,
+                debugGrid = true,
             })
         end
     end
@@ -179,11 +179,11 @@ CreateThread(function()
     -- Create ComboZone
     local Lakes = ComboZone:Create(zones, {
         name = "Lakes", 
-        debugPoly = false
+        debugPoly = true
     })
     local Rivers = ComboZone:Create(zones2, {
         name = "Rivers", 
-        debugPoly = false
+        debugPoly = true
     })
     local Docks = ComboZone:Create(zones3, {
         name = "Docks", 
@@ -191,7 +191,7 @@ CreateThread(function()
     })
     local Ocean = ComboZone:Create(zones4, {
         name = "Ocean", 
-        debugPoly = false
+        debugPoly = true
     })
     local Illegal = ComboZone:Create(zones5, {
         name = "Illegal", 
