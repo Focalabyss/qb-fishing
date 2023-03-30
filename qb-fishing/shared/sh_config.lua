@@ -1,13 +1,42 @@
 Shared = {} or Shared
 
+-- % Chance that police will be called for Illegal Fishing
+Shared.Chance = 40
+
+--Time Between Cast and Minigame Start
 Shared.CastTimeMin = 5 -- Minimum Time in seconds between fishing and minigame
 Shared.CastTimeMax = 8 -- Maximum Time in seconds between fishing and minigame
 
+-- How many Circles for normal Fishing
 Shared.MinigameCirclesMin = 2 -- Minigame: Minimum amount of circles
 Shared.MinigameCirclesMax = 3 -- Minigame: Maximum amount of circles
+
+-- How many Circles for Illegal Fishing
+Shared.IllegalCircleMin = 5 -- Minigame: Minimum Cirles for Illegal Fishing
+Shared.IllegalCircleMax = 7 -- Minigame: Maximum Circles for Illegal Fishing
+
+-- How fast the Minigame is played
 Shared.MinigameTime = 20 -- Minigame: Amount of time in seconds
+Shared.IllegalgameTime = 15 -- Minigame: Amount of time in seconds for Illegal Fishing
 
 Shared.SellLocation = vector4(1348.36, 4317.34, 37.04, 83.71)
+-- How much money each fish is worth
+Shared.SellPrice = {
+    trout = 50,
+    laketrout = 75,
+    catfish = 132,
+    goldfish = 165,
+    largemouthbass = 100,
+    redfish = 220,
+    salmon = 220,
+    stripedbass = 125, 
+}
+-- How many Bands you get for each illegal fish
+Shared.IllegalPrice = {
+    stingray = 5,
+    whale = 7,
+    whale2 = 10
+}
 
 Shared.FishingZones = {
     [1] = { 
@@ -876,5 +905,123 @@ Shared.FishingZones = {
         --river = true --Uncomment this if the new zone is a river
         ocean = true --Uncomment this if the new zone is in the ocean
         --illegal = true --Uncomment this if the new zone is an illegal zone
-    }
+    },
+    [8] = {
+        name = 'Docks Ocean',
+        points = {
+            vector2(-1704.7277832031, -2471.7568359375),
+            vector2(-1757.6285400391, -2573.8674316406),
+            vector2(-1788.2103271484, -2630.2041015625),
+            vector2(-1785.7764892578, -2667.4421386719),
+            vector2(-1808.8505859375, -2698.7133789062),
+            vector2(-1820.9515380859, -2700.6555175781),
+            vector2(-1839.7468261719, -2724.5727539062),
+            vector2(-1857.4929199219, -2734.8984375),
+            vector2(-1874.7802734375, -2770.3923339844),
+            vector2(-1883.4814453125, -2804.2302246094),
+            vector2(-1898.3981933594, -2852.1730957031),
+            vector2(-1919.7418212891, -2866.1042480469),
+            vector2(-1951.1195068359, -2930.248046875),
+            vector2(-2001.5930175781, -3003.4929199219),
+            vector2(-1986.6778564453, -3037.978515625),
+            vector2(-1986.2193603516, -3047.2004394531),
+            vector2(-1971.5445556641, -3066.7348632812),
+            vector2(-1970.7230224609, -3092.9558105469),
+            vector2(-1971.0321044922, -3152.4851074219),
+            vector2(-1958.8050537109, -3167.6560058594),
+            vector2(-1963.7060546875, -3187.55078125),
+            vector2(-1908.0788574219, -3223.6975097656),
+            vector2(-1873.1527099609, -3225.7270507812),
+            vector2(-1859.0706787109, -3240.1015625),
+            vector2(-1856.7711181641, -3268.4836425781),
+            vector2(-1844.6574707031, -3283.1159667969),
+            vector2(-1777.9954833984, -3310.9577636719),
+            vector2(-1717.796875, -3331.8500976562),
+            vector2(-1682.7100830078, -3355.6926269531),
+            vector2(-1583.5443115234, -3393.7578125),
+            vector2(-1530.2954101562, -3398.5288085938),
+            vector2(-1363.1845703125, -3466.4111328125),
+            vector2(-1300.5740966797, -3484.3959960938),
+            vector2(-1295.2272949219, -3504.1169433594),
+            vector2(-1277.5858154297, -3507.6779785156),
+            vector2(-1248.8846435547, -3511.0895996094),
+            vector2(-1225.5576171875, -3532.01953125),
+            vector2(-1208.4805908203, -3537.8193359375),
+            vector2(-1168.9664306641, -3560.3176269531),
+            vector2(-1157.5051269531, -3574.9208984375),
+            vector2(-1138.7430419922, -3574.6486816406),
+            vector2(-1103.1376953125, -3541.9577636719),
+            vector2(-1012.5074462891, -3592.8698730469),
+            vector2(-994.33227539062, -3569.7143554688),
+            vector2(-978.87927246094, -3570.7575683594),
+            vector2(-952.19311523438, -3584.7836914062),
+            vector2(-934.31097412109, -3582.7661132812),
+            vector2(-907.4287109375, -3555.2009277344),
+            vector2(-726.05249023438, -3237.4916992188),
+            vector2(-512.89447021484, -2942.9470214844),
+            vector2(-505.75173950195, -2943.9711914062),
+            vector2(-425.05477905273, -2863.4890136719),
+            vector2(-413.07507324219, -2863.6186523438),
+            vector2(-350.30966186523, -2800.0478515625),
+            vector2(-350.46633911133, -2797.0522460938),
+            vector2(-323.54150390625, -2795.9770507812),
+            vector2(-322.59851074219, -2790.5581054688),
+            vector2(-277.18661499023, -2790.4206542969),
+            vector2(-277.1389465332, -2770.9780273438),
+            vector2(-302.40267944336, -2770.1872558594),
+            vector2(-304.60247802734, -2762.0471191406),
+            vector2(-312.08819580078, -2761.5874023438),
+            vector2(-312.15765380859, -2759.5886230469),
+            vector2(-322.59756469727, -2759.5659179688),
+            vector2(-253.22929382324, -2689.6687011719),
+            vector2(-200.76037597656, -2689.4072265625),
+            vector2(-199.72677612305, -2728.0634765625),
+            vector2(-165.5814666748, -2727.7797851562),
+            vector2(-165.41731262207, -2719.7829589844),
+            vector2(-101.43670654297, -2719.6110839844),
+            vector2(-101.37971496582, -2747.5559082031),
+            vector2(-20.141315460205, -2748.5153808594),
+            vector2(-0.37609431147575, -2750.2365722656),
+            vector2(6.3430080413818, -2750.7631835938),
+            vector2(6.6067833900452, -2760.7338867188),
+            vector2(76.009353637695, -2760.48828125),
+            vector2(135.20404052734, -2700.8864746094),
+            vector2(135.1227722168, -2667.9013671875),
+            vector2(185.6166229248, -2667.6892089844),
+            vector2(185.35885620117, -2765.1696777344),
+            vector2(185.44522094727, -2765.6687011719),
+            vector2(151.29527282715, -2766.8337402344),
+            vector2(106.79534912109, -2813.8779296875),
+            vector2(105.18394470215, -2817.5395507812),
+            vector2(105.13874816895, -3341.8703613281),
+            vector2(127.42073822021, -3646.978515625),
+            vector2(-43.132007598877, -3720.7202148438),
+            vector2(-348.71060180664, -3649.9736328125),
+            vector2(-447.3405456543, -3662.8078613281),
+            vector2(-519.74041748047, -3723.2429199219),
+            vector2(-516.51654052734, -3877.0844726562),
+            vector2(-819.30798339844, -4057.5200195312),
+            vector2(-1115.0805664062, -4143.0229492188),
+            vector2(-1386.7879638672, -4050.5446777344),
+            vector2(-1611.1197509766, -4014.9147949219),
+            vector2(-2000.8685302734, -3724.3203125),
+            vector2(-2098.9562988281, -3721.5200195312),
+            vector2(-2277.5415039062, -3553.880859375),
+            vector2(-2381.7805175781, -3382.2866210938),
+            vector2(-2442.5942382812, -3352.0288085938),
+            vector2(-2454.5578613281, -3303.4777832031),
+            vector2(-2500.9079589844, -3025.2116699219),
+            vector2(-2455.2282714844, -2717.2646484375),
+            vector2(-2363.9204101562, -2454.1062011719),
+            vector2(-2061.7741699219, -2107.21875),
+            vector2(-2029.7280273438, -2017.7395019531)
+        },
+        minZ = 0.074120029807091,
+        maxZ = 16.070318222046,
+        --lake = true --Uncomment this if the new zone is a lake
+        --dock = true --Uncomment this if the new zone is a Dock or Canal
+        --river = true --Uncomment this if the new zone is a river
+        ocean = true --Uncomment this if the new zone is in the ocean
+        --illegal = true --Uncomment this if the new zone is an illegal zone
+    },
 }
