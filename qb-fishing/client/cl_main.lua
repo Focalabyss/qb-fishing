@@ -179,11 +179,11 @@ CreateThread(function()
     -- Create ComboZone
     local Lakes = ComboZone:Create(zones, {
         name = "Lakes", 
-        debugPoly = true
+        debugPoly = false
     })
     local Rivers = ComboZone:Create(zones2, {
         name = "Rivers", 
-        debugPoly = true
+        debugPoly = false
     })
     local Docks = ComboZone:Create(zones3, {
         name = "Docks", 
@@ -191,7 +191,7 @@ CreateThread(function()
     })
     local Ocean = ComboZone:Create(zones4, {
         name = "Ocean", 
-        debugPoly = true
+        debugPoly = false
     })
     local Illegal = ComboZone:Create(zones5, {
         name = "Illegal", 
