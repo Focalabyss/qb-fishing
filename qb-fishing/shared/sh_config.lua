@@ -1,5 +1,7 @@
 Shared = {} or Shared
 
+Shared.IllegalMoney = 'bands' -- Set this to 'markedbills' if you don't use bands as your dirty money
+
 -- % Chance that police will be called for Illegal Fishing
 Shared.Chance = 40
 
@@ -11,15 +13,11 @@ Shared.CastTimeMax = 8 -- Maximum Time in seconds between fishing and minigame
 Shared.MinigameCirclesMin = 2 -- Minigame: Minimum amount of circles
 Shared.MinigameCirclesMax = 3 -- Minigame: Maximum amount of circles
 
--- How many Circles for Illegal Fishing
-Shared.IllegalCircleMin = 5 -- Minigame: Minimum Cirles for Illegal Fishing
-Shared.IllegalCircleMax = 7 -- Minigame: Maximum Circles for Illegal Fishing
-
 -- How fast the Minigame is played
-Shared.MinigameTime = 20 -- Minigame: Amount of time in seconds
-Shared.IllegalgameTime = 15 -- Minigame: Amount of time in seconds for Illegal Fishing
+Shared.MinigameTime = 20 -- Minigame: Amount of time in seconds (Recommend keeping it at 20)
 
 Shared.SellLocation = vector4(1348.36, 4317.34, 37.04, 83.71)
+
 -- How much money each fish is worth
 Shared.SellPrice = {
     trout = 50,
