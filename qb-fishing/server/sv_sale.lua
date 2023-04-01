@@ -62,14 +62,17 @@ RegisterNetEvent('qb-fishing:server:SellIllegalFish', function(fish, amount)
             local info = {
                 worth = 100
             }
-            Player.Functions.AddItem('bands', amount * Shared.IllegalPrice[item.name], false, info)
-
+            if Shared.IllegalMoney == 'bands' then
+                Player.Functions.AddItem('bands', amount * Shared.IllegalPrice[item.name], false, info)
+            else
+                Player.Functions.AddItem(Shared.IllegalMoney, amount * Shared.IllegalPrice[item.name], false, info)
+            end
             -- Log
             TriggerEvent('qb-log:server:CreateLog', 'fishing', 'Sale Fish', 'lightgreen', "**"..Player.PlayerData.name .. " (citizenid: "..Player.PlayerData.citizenid.." | id: "..Player.PlayerData.source..")** received "..amount * Shared.IllegalPrice[item.name].." Bands for selling "..amount.."x "..QBCore.Shared.Items[item.name].label)
 
             -- Notification
-            TriggerClientEvent('inventory:client:ItemBox', Player.PlayerData.source, QBCore.Shared.Items['bands'], 'add', amount * Shared.IllegalPrice[item.name])
-            TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, 'You received '..amount * Shared.IllegalPrice[item.name]..' Bands for selling your '..QBCore.Shared.Items[item.name].label, 'success', 2500)
+            TriggerClientEvent('inventory:client:ItemBox', Player.PlayerData.source, QBCore.Shared.Items[Shared.IllegalMoney], 'add', amount * Shared.IllegalPrice[item.name])
+            TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, 'You received '..amount * Shared.IllegalPrice[item.name], Shared.IllegalMoney..' for selling your '..QBCore.Shared.Items[item.name].label, 'success', 2500)
         end
     end
 end)
