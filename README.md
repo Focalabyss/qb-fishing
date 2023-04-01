@@ -69,6 +69,30 @@ I based and used some code from Lionh34rt's qb-fishing script. I was bored of th
         info = {},
         type = 'item',
         slot = 2,
+    },
+    [3] = {
+        name = 'smallchunks',
+        price = 25,
+        amount = 5000,
+        info = {},
+        type = item,
+        slot = 3,
+    },
+    [4] = {
+        name = 'plankton',
+        price = 30,
+        amount = 5000,
+        info = {},
+        type = item,
+        slot = 4,
+    },
+    [5] = {
+        name = 'sharkbait',
+        price = 50,
+        amount = 5000,
+        info = {},
+        type = item,
+        slot = 5,
     }
 },
 ```
