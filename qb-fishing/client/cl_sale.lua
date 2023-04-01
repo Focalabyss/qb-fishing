@@ -2,8 +2,8 @@ local ped
 local isSelling = false
 
 local fish = {
-    fish = true,
-    fish2 = true,
+    trout = true,
+    laketrout = true,
     catfish = true,
     goldfish = true,
     largemouthbass = true,
