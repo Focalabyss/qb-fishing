@@ -12,8 +12,6 @@ local anchorActive = false
 --- Method to perform fishing animation
 --- @return nil
 local fishAnimation = function()
-    -- Remove Fishing Bait
-    TriggerServerEvent('qb-fishing:server:RemoveBait')
     -- Throw Bait Animation
     local ped = PlayerPedId()
     RequestAnimDict('mini@tennis')
@@ -42,11 +40,24 @@ local fishAnimation = function()
                 TriggerServerEvent('qb-fishing:server:ReceiveFish4')
             elseif canFish5 then
                 local chance = math.random(1, 100)
+                local hasItem = QBCore.Functions.HasItem("smallchunks")
+                local hasItem2 = QBCore.Functions.HasItem("plankton")
+                local hasItem3 = QBCore.Functions.HasItem("sharkbait")
                 if chance >= 100 - Shared.Chance then
                     exports['ps-dispatch']:Poaching()
                 end
-                TriggerServerEvent('hud:server:RelieveStress', 2)
-                TriggerServerEvent('qb-fishing:server:ReceiveIllegalFish')
+                if hasItem then
+                    TriggerServerEvent('hud:server:RelieveStress', 2)
+                    TriggerServerEvent('qb-fishing:server:ReceiveIllegalFish', 1)
+                elseif hasItem2 then
+                    TriggerServerEvent('hud:server:RelieveStress', 2)
+                    TriggerServerEvent('qb-fishing:server:ReceiveIllegalFish', 2)
+                elseif hasItem3 then
+                    TriggerServerEvent('hud:server:RelieveStress', 2)
+                    TriggerServerEvent('qb-fishing:server:ReceiveIllegalFish', 3)
+                else
+                    QBCore.Functions.Notify("You don't have the right bait!", "error")
+                end
             else
                 QBCore.Functions.Notify('The fish got away!', 'error', 2500)
                 TriggerServerEvent('hud:server:RelieveStress', 1)
@@ -117,13 +128,13 @@ RegisterNetEvent('qb-fishing:client:FishingRod', function()
             QBCore.Functions.Notify('You need both a fishing rod and bait to start fishing..', 'error', 2500)
         end
     elseif canFish5 then
-        local hasItem = QBCore.Functions.HasItem("fishingbait")
-        if hasItem then
+        --local hasItem = QBCore.Functions.HasItem("smallchunks")
+        --if hasItem then
             -- Start Fishing
             startFishing()
-        else
-            QBCore.Functions.Notify('You need both a fishing rod and bait to start fishing..', 'error', 2500)
-        end
+        --else
+        --    QBCore.Functions.Notify('You need both a fishing rod and bait to start fishing..', 'error', 2500)
+        --end
     else
         QBCore.Functions.Notify('You can\'t fish over here..', 'error', 2500)
     end
@@ -288,3 +299,4 @@ CreateThread(function()
         end
     end)
 end)
+
