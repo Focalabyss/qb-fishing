@@ -7,6 +7,7 @@ local canFish4 = false
 local canFish5 = false
 local isFishing = false
 local fishingRod
+local anchorActive = false
 
 --- Method to perform fishing animation
 --- @return nil
@@ -125,6 +126,48 @@ RegisterNetEvent('qb-fishing:client:FishingRod', function()
         end
     else
         QBCore.Functions.Notify('You can\'t fish over here..', 'error', 2500)
+    end
+end)
+
+RegisterNetEvent('qb-fishing:useAnchor', function()
+    local ped = PlayerPedId()
+    local currVeh = GetVehiclePedIsIn(ped, false)
+    if IsPedInAnyVehicle(ped, false) then 
+        if currVeh ~= 0 then
+            local vehModel = GetEntityModel(currVeh)
+            if vehModel ~= nil and vehModel ~= 0 then
+                if DoesEntityExist(currVeh) then
+                    if IsThisModelABoat(vehModel) or IsThisModelAJetski(vehModel) or IsThisModelAnAmphibiousCar(vehModel) or IsThisModelAnAmphibiousQuadbike(vehModel) then 
+                        QBCore.Functions.Progressbar('anchor', 'Anchor is setting up', 5000, false, true, {
+                            disableMovement = true, --
+                            disableCarMovement = true,
+                            disableMouse = false,
+                            disableCombat = true,
+                        }, {}, {}, {}, function() 
+                            if IsBoatAnchoredAndFrozen(currVeh) then 
+                                QBCore.Functions.Notify('Anchor pulled', 'success') 
+                                SetBoatAnchor(currVeh, false)
+                                SetBoatFrozenWhenAnchored(currVeh, false)
+                                SetForcedBoatLocationWhenAnchored(currVeh, false)
+                                anchorActive = false
+                            elseif not IsBoatAnchoredAndFrozen(currVeh) and CanAnchorBoatHere(currVeh) and GetEntitySpeed(currVeh) < 3 then
+                                SetEntityAsMissionEntity(currVeh,false,true) 
+                                QBCore.Functions.Notify('Anchor has been thrown!', 'success') 
+                                SetBoatAnchor(currVeh, true)
+                                SetBoatFrozenWhenAnchored(currVeh, true)
+                                SetForcedBoatLocationWhenAnchored(currVeh, true)
+                                anchorActive = true
+                            end
+                        end, function() -- Cancel
+                            QBCore.Functions.Notify('You have cancelled the anchor.', 'error')
+                            anchorActive = false
+                        end)
+                    end
+                end
+            end
+        end
+    else
+        QBCore.Functions.Notify('You must be inside of boat to use this command!', 'error')
     end
 end)
 
