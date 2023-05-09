@@ -27,13 +27,17 @@ Shared.SellPrice = {
     largemouthbass = 100,
     redfish = 220,
     salmon = 220,
-    stripedbass = 125, 
+    stripedbass = 125,
+    bluefish = 220,
+    mackerel = 180,
+    flounder = 160,
+    smallmouth = 155,
 }
 -- How many Bands you get for each illegal fish
 Shared.IllegalPrice = {
     stingray = 5,
-    whale = 7,
-    whale2 = 10
+    shark = 7,
+    dolphin = 10
 }
 
 Shared.FishingZones = {

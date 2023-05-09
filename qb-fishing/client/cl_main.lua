@@ -27,17 +27,69 @@ local fishAnimation = function()
     exports['ps-ui']:Circle(function(success)
         if success then
             if canFish then
-                TriggerServerEvent('hud:server:RelieveStress', 2)
-                TriggerServerEvent('qb-fishing:server:ReceiveFish')
+                local hasItem = QBCore.Functions.HasItem("cornbait")
+                local hasItem2 = QBCore.Functions.HasItem("worms")
+                local hasItem3 = QBCore.Functions.HasItem("fishingbait")
+                if hasItem then
+                    TriggerServerEvent('hud:server:RelieveStress', 2)
+                    TriggerServerEvent('qb-fishing:server:ReceiveFish', 1)
+                elseif hasItem2 then
+                    TriggerServerEvent('hud:server:RelieveStress', 2)
+                    TriggerServerEvent('qb-fishing:server:ReceiveFish', 2)
+                elseif hasItem3 then
+                    TriggerServerEvent('hud:server:RelieveStress', 2)
+                    TriggerServerEvent('qb-fishing:server:ReceiveFish', 3)
+                else
+                    QBCore.Functions.Notify("You don't have the right bait!", "error")
+                end
             elseif canFish2 then
-                TriggerServerEvent('hud:server:RelieveStress', 2)
-                TriggerServerEvent('qb-fishing:server:ReceiveFish2')
+                local hasItem = QBCore.Functions.HasItem("fishingbait")
+                local hasItem2 = QBCore.Functions.HasItem("cornbait")
+                local hasItem3 = QBCore.Functions.HasItem("worms")
+                if hasItem then
+                    TriggerServerEvent('hud:server:RelieveStress', 2)
+                    TriggerServerEvent('qb-fishing:server:ReceiveFish2', 1)
+                elseif hasItem2 then
+                    TriggerServerEvent('hud:server:RelieveStress', 2)
+                    TriggerServerEvent('qb-fishing:server:ReceiveFish2', 2)
+                elseif hasItem3 then
+                    TriggerServerEvent('hud:server:RelieveStress', 2)
+                    TriggerServerEvent('qb-fishing:server:ReceiveFish2', 3)
+                else
+                    QBCore.Functions.Notify("You don't have the right bait!", "error")
+                end
             elseif canFish3 then
-                TriggerServerEvent('hud:server:RelieveStress', 2)
-                TriggerServerEvent('qb-fishing:server:ReceiveFish3')
+                local hasItem = QBCore.Functions.HasItem("fishingbait")
+                local hasItem2 = QBCore.Functions.HasItem("cornbait")
+                local hasItem3 = QBCore.Functions.HasItem("smallchunks")
+                if hasItem then
+                    TriggerServerEvent('hud:server:RelieveStress', 2)
+                    TriggerServerEvent('qb-fishing:server:ReceiveFish3', 1)
+                elseif hasItem2 then
+                    TriggerServerEvent('hud:server:RelieveStress', 2)
+                    TriggerServerEvent('qb-fishing:server:ReceiveFish3', 2)
+                elseif hasItem3 then
+                    TriggerServerEvent('hud:server:RelieveStress', 2)
+                    TriggerServerEvent('qb-fishing:server:ReceiveFish3', 3)
+                else
+                    QBCore.Functions.Notify("You don't have the right bait!", "error")
+                end
             elseif canFish4 then
-                TriggerServerEvent('hud:server:RelieveStress', 2)
-                TriggerServerEvent('qb-fishing:server:ReceiveFish4')
+                local hasItem = QBCore.Functions.HasItem("smallchunks")
+                local hasItem2 = QBCore.Functions.HasItem("fishingbait")
+                local hasItem3 = QBCore.Functions.HasItem("sharkbait")
+                if hasItem then
+                    TriggerServerEvent('hud:server:RelieveStress', 2)
+                    TriggerServerEvent('qb-fishing:server:ReceiveFish4', 1)
+                elseif hasItem2 then
+                    TriggerServerEvent('hud:server:RelieveStress', 2)
+                    TriggerServerEvent('qb-fishing:server:ReceiveFish4', 2)
+                elseif hasItem3 then
+                    TriggerServerEvent('hud:server:RelieveStress', 2)
+                    TriggerServerEvent('qb-fishing:server:ReceiveFish4', 3)
+                else
+                    QBCore.Functions.Notify("You don't have the right bait!", "error")
+                end
             elseif canFish5 then
                 local chance = math.random(1, 100)
                 local hasItem = QBCore.Functions.HasItem("smallchunks")
@@ -96,37 +148,37 @@ end
 RegisterNetEvent('qb-fishing:client:FishingRod', function()
     -- Check if player has fishingbait
     if canFish then
-        local hasItem = QBCore.Functions.HasItem("fishingbait")
-        if hasItem then
+        --local hasItem = QBCore.Functions.HasItem("fishingbait")
+        --if hasItem then
             -- Start Fishing
             startFishing()
-        else
-            QBCore.Functions.Notify('You need both a fishing rod and bait to start fishing..', 'error', 2500)
-        end
+        --else
+        --    QBCore.Functions.Notify('You need both a fishing rod and bait to start fishing..', 'error', 2500)
+        --end
     elseif canFish2 then
-        local hasItem = QBCore.Functions.HasItem("fishingbait")
-        if hasItem then
+        --local hasItem = QBCore.Functions.HasItem("fishingbait")
+        --if hasItem then
             -- Start Fishing
             startFishing()
-        else
-            QBCore.Functions.Notify('You need both a fishing rod and bait to start fishing..', 'error', 2500)
-        end
+        --else
+        --    QBCore.Functions.Notify('You need both a fishing rod and bait to start fishing..', 'error', 2500)
+        --end
     elseif canFish3 then
-        local hasItem = QBCore.Functions.HasItem("fishingbait")
-        if hasItem then
+        --local hasItem = QBCore.Functions.HasItem("fishingbait")
+        --if hasItem then
             -- Start Fishing
             startFishing()
-        else
-            QBCore.Functions.Notify('You need both a fishing rod and bait to start fishing..', 'error', 2500)
-        end
+        --else
+        --    QBCore.Functions.Notify('You need both a fishing rod and bait to start fishing..', 'error', 2500)
+        --end
     elseif canFish4 then
-        local hasItem = QBCore.Functions.HasItem("fishingbait")
-        if hasItem then
+        --local hasItem = QBCore.Functions.HasItem("fishingbait")
+        --if hasItem then
             -- Start Fishing
             startFishing()
-        else
-            QBCore.Functions.Notify('You need both a fishing rod and bait to start fishing..', 'error', 2500)
-        end
+        --else
+        --    QBCore.Functions.Notify('You need both a fishing rod and bait to start fishing..', 'error', 2500)
+        --end
     elseif canFish5 then
         --local hasItem = QBCore.Functions.HasItem("smallchunks")
         --if hasItem then

@@ -7,12 +7,16 @@ local fish = {
     catfish = true,
     goldfish = true,
     largemouthbass = true,
+    bluefish = true,
     redfish = true,
     salmon = true,
     stingray = true,
     stripedbass = true,
-    whale = true,
-    whale2 = true
+    shark = true,
+    flounder = true,
+    smallmouth = true,
+    mackerel = true,
+    dolphin = true,
 }
 
 RegisterNetEvent('qb-fishing:client:OpenSale', function()
